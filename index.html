@@ -1,1 +1,485 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>OXI E-SPORTS | Download</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            color: #fff;
+            background:
+                radial-gradient(circle at 20% 20%, #ff005522, transparent 30%),
+                radial-gradient(circle at 80% 30%, #6c00ff22, transparent 30%),
+                linear-gradient(135deg, #050509, #0b0712, #030305);
+            overflow-x: hidden;
+        }
+
+        /* Background */
+        .bg-glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .25;
+            z-index: -1;
+        }
+
+        .glow-1 {
+            background: #ff0055;
+            left: -150px;
+            top: 100px;
+        }
+
+        .glow-2 {
+            background: #7000ff;
+            right: -150px;
+            bottom: 50px;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff1762;
+        }
+
+        .official {
+            padding: 9px 17px;
+            border: 1px solid #ffffff18;
+            background: #ffffff08;
+            border-radius: 30px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .official::before {
+            content: "";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            margin-right: 7px;
+            border-radius: 50%;
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        /* Main */
+        .hero {
+            min-height: calc(100vh - 90px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 9px 18px;
+            margin-bottom: 25px;
+            border-radius: 50px;
+            color: #ff5489;
+            background: #ff005511;
+            border: 1px solid #ff176244;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(50px, 9vw, 90px);
+            line-height: .95;
+            font-weight: 950;
+            letter-spacing: -4px;
+        }
+
+        h1 .gradient {
+            background: linear-gradient(
+                90deg,
+                #ff0752,
+                #ff4f91,
+                #9c4dff
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            max-width: 650px;
+            margin: 28px auto 0;
+            color: #aaaab5;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            margin-top: 35px;
+            padding: 18px 38px;
+
+            min-width: 230px;
+
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 800;
+
+            border-radius: 14px;
+
+            background: linear-gradient(
+                135deg,
+                #ff0752,
+                #b600ff
+            );
+
+            box-shadow:
+                0 12px 40px #ff005544,
+                inset 0 1px #ffffff55;
+
+            transition: .3s ease;
+            overflow: hidden;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+
+            box-shadow:
+                0 18px 55px #ff005566,
+                0 0 30px #a000ff33;
+        }
+
+        .download-btn:active {
+            transform: scale(.97);
+        }
+
+        .download-icon {
+            font-size: 22px;
+        }
+
+        /* Shine animation */
+        .download-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #ffffff33,
+                transparent
+            );
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -120%;
+            }
+
+            45%, 100% {
+                left: 140%;
+            }
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 65px;
+        }
+
+        .feature {
+            padding: 23px 15px;
+            border-radius: 18px;
+            background: #ffffff08;
+            border: 1px solid #ffffff0d;
+            backdrop-filter: blur(15px);
+            transition: .3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-6px);
+            border-color: #ff176255;
+            background: #ffffff0d;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .feature p {
+            color: #858591;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .version {
+            margin-top: 20px;
+            color: #62626d;
+            font-size: 11px;
+        }
+
+        /* Download Message */
+        #message {
+            display: none;
+            margin: 20px auto 0;
+            padding: 12px 18px;
+            width: fit-content;
+            border-radius: 10px;
+            background: #00ff8812;
+            border: 1px solid #00ff8833;
+            color: #72ffb4;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #555560;
+            font-size: 11px;
+        }
+
+        /* Mobile */
+        @media (max-width: 650px) {
+
+            header {
+                padding: 20px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .official {
+                font-size: 10px;
+                padding: 7px 11px;
+            }
+
+            .hero {
+                padding: 40px 18px;
+            }
+
+            h1 {
+                font-size: 53px;
+                letter-spacing: -2px;
+            }
+
+            .description {
+                font-size: 14px;
+                padding: 0 5px;
+            }
+
+            .download-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                margin-top: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            OXI <span>E-SPORTS</span>
+        </div>
+
+        <div class="official">
+            OFFICIAL APP
+        </div>
+
+    </header>
+
+
+    <!-- Main Section -->
+    <main class="hero">
+
+        <div class="content">
+
+            <div class="badge">
+                🎮 GAMING TOURNAMENT PLATFORM
+            </div>
+
+            <h1>
+                PLAY.<br>
+                <span class="gradient">COMPETE.</span><br>
+                WIN.
+            </h1>
+
+            <p class="description">
+                Join OXI E-SPORTS and participate in exciting gaming
+                tournaments. Download the official app and start your
+                tournament journey today.
+            </p>
+
+
+            <!-- Download Button -->
+            <a
+                href="https://www.mediafire.com/file/ye2hegtdseqhazv/OXI_E-SPORTS.apk/file"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="download-btn"
+                id="downloadButton"
+            >
+                <span class="download-icon">⬇</span>
+                DOWNLOAD NOW
+            </a>
+
+            <div id="message">
+                ✓ Redirecting to download...
+            </div>
+
+            <div class="version">
+                Android APK • OXI E-SPORTS
+            </div>
+
+
+            <!-- Features -->
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Tournaments
+                    </h3>
+
+                    <p>
+                        Join exciting gaming tournaments
+                        and compete with players.
+                    </p>
+                </div>
+
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Fast & Easy
+                    </h3>
+
+                    <p>
+                        Simple and user-friendly
+                        tournament experience.
+                    </p>
+                </div>
+
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        🎮
+                    </div>
+
+                    <h3>
+                        Gaming Community
+                    </h3>
+
+                    <p>
+                        Connect, compete and enjoy
+                        your gaming journey.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        © 2026 OXI E-SPORTS. All Rights Reserved.
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        const downloadButton =
+            document.getElementById("downloadButton");
+
+        const message =
+            document.getElementById("message");
+
+
+        downloadButton.addEventListener("click", function () {
+
+            message.style.display = "block";
+
+            downloadButton.innerHTML =
+                '<span class="download-icon">✓</span> OPENING DOWNLOAD...';
+
+            setTimeout(function () {
+
+                downloadButton.innerHTML =
+                    '<span class="download-icon">⬇</span> DOWNLOAD NOW';
+
+            }, 2500);
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
